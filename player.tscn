@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl1pu55hm3ouf"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ywwsc"]
+[ext_resource type="Texture2D" uid="uid://d448qbdpc4ai" path="res://ASSETS/birdP.png" id="2_frrlc"]
+[ext_resource type="AudioStream" uid="uid://crooacdc5ge12" path="res://SOUND/PianoNoteCSoundEffect.mp3" id="3_y7uw6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mjhta"]
+radius = 33.0
+height = 68.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_ywwsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.215223, 0.215223)
+texture = ExtResource("2_frrlc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mjhta")
+
+[node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y7uw6")
+volume_db = 19.09

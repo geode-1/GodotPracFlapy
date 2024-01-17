@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmdrvqmjeeyy"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_gvwva"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfx61"]
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ox4w"]
+font_size = 33
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gvwva")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1255.0
+offset_bottom = 703.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -38.5
+offset_right = 40.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.51, 1.51)
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TryAgain" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Try Again"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Menu
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOvar" type="Label" parent="."]
+layout_mode = 2
+offset_left = 429.0
+offset_top = 52.0
+offset_right = 748.0
+offset_bottom = 129.0
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_rfx61")
+
+[node name="Score_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -152.0
+offset_right = 73.5
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: ##"
+label_settings = SubResource("LabelSettings_5ox4w")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

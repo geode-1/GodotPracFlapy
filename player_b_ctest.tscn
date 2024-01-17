@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlke3v7fdh1hw"]
+
+[ext_resource type="Script" path="res://playerBCtest.gd" id="1_xd6xl"]
+[ext_resource type="Texture2D" uid="uid://b6fox3cr5728i" path="res://icon.svg" id="2_jco7u"]
+[ext_resource type="PackedScene" uid="uid://db3ri1213v71a" path="res://default_background.tscn" id="3_a81bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bo6n"]
+
+[node name="playerBCtest" type="CharacterBody2D"]
+script = ExtResource("1_xd6xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7bo6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jco7u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="default_background" parent="Camera2D" instance=ExtResource("3_a81bx")]

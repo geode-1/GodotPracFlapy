@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://gdtkpsfmj1yc"]
+
+[ext_resource type="PackedScene" uid="uid://db3ri1213v71a" path="res://default_background.tscn" id="1_j3175"]
+[ext_resource type="PackedScene" uid="uid://cl1pu55hm3ouf" path="res://player.tscn" id="2_u12ql"]
+[ext_resource type="PackedScene" uid="uid://brnt1ui7bxujg" path="res://pipe_spawner.tscn" id="3_fxrlr"]
+[ext_resource type="PackedScene" uid="uid://p7hlcoel0210" path="res://ui.tscn" id="4_xjc0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esr3v"]
+size = Vector2(1768, 94)
+
+[node name="world" type="Node2D"]
+
+[node name="default_background" parent="." instance=ExtResource("1_j3175")]
+
+[node name="Player" parent="." instance=ExtResource("2_u12ql")]
+position = Vector2(362, 352)
+
+[node name="pipe_spawner" parent="." instance=ExtResource("3_fxrlr")]
+position = Vector2(1240, 11)
+
+[node name="death_zone" type="Area2D" parent="."]
+position = Vector2(537, 837)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
+shape = SubResource("RectangleShape2D_esr3v")
+
+[node name="UI" parent="." instance=ExtResource("4_xjc0b")]
+
+[connection signal="body_entered" from="death_zone" to="Player" method="_on_death_zone_body_entered"]

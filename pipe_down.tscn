@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://rsg6k62xcypp"]
+
+[ext_resource type="Script" path="res://pipe_down.gd" id="1_64vdj"]
+[ext_resource type="Texture2D" uid="uid://bn7lin210us2s" path="res://ASSETS/pipe.png" id="2_55ewy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cyw4"]
+size = Vector2(144, 531)
+
+[node name="pipe_down" type="Area2D"]
+position = Vector2(2.08165e-12, 30)
+collision_layer = 2
+script = ExtResource("1_64vdj")
+metadata/_edit_group_ = true
+
+[node name="Pipe" type="Sprite2D" parent="."]
+position = Vector2(0, -26.437)
+scale = Vector2(0.895634, 1.2157)
+texture = ExtResource("2_55ewy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -31.5)
+shape = SubResource("RectangleShape2D_8cyw4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(125, 2.08165e-12)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

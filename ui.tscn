@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://p7hlcoel0210"]
+
+[ext_resource type="Script" path="res://UI.gd" id="1_sb4l8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqbu7"]
+font_size = 36
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb4l8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 44.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Points" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score: ##"
+label_settings = SubResource("LabelSettings_wqbu7")
